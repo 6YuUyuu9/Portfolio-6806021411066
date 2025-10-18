@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mr.Kritsada Sanidchai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2980b9;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2980b9;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #e67e22, #f39c12);
+            color: white;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #3498db;
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category i {
+            color: #3498db;
+            font-size: 1.5rem;
+        }
+
+        .goal-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateX(5px);
+        }
+
+        .goal-content h5 {
+            margin-bottom: 0.5rem;
+            color: #2980b9;
+            font-weight: 600;
+        }
+
+        .goal-content p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-image {
+            height: 250px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .learning-progress {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h4 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .social-contact-section {
+            text-align: center;
+        }
+
+        .social-intro {
+            margin-bottom: 3rem;
+        }
+
+        .social-intro h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .social-intro p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon.github {
+            background: linear-gradient(45deg, #333, #24292e);
+        }
+
+        .social-icon.linkedin {
+            background: linear-gradient(45deg, #0077b5, #005582);
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #e4405f, #833ab4, #fccc63);
+        }
+
+        .social-icon.youtube {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+        }
+
+        .social-icon.twitter {
+            background: linear-gradient(45deg, #1da1f2, #0d8bd9);
+        }
+
+        .social-icon.discord {
+            background: linear-gradient(45deg, #7289da, #5b6eae);
+        }
+
+        .social-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .social-card p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .social-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">MY.Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">เกี่ยวกับ</a></li>
+                <li><a href="#goals">เป้าหมาย</a></li>
+                <li><a href="#learning">การเตรียมตัว</a></li>
+                <li><a href="#future">อนาคต</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>สวัสดีครับ ผม นายกฤษดา สนิทชัย</h1>
+            <p class="subtitle">นักศึกษาผู้มีความฝัน & ผู้ที่มองหาความมั่นคง</p>
+            <p class="description">
+                ผมกำลังเรียนรู้และเตรียมพร้อมเพื่อเป็นพนักงานออฟฟิศที่มีอาชีพมั่นคง 
+                พร้อมทั้งวางแผนที่จะทำธุรกิจส่วนตัวในอนาคตเพื่อสร้างความมั่นคงทางการเงิน
+            </p>
+            <div class="cta-buttons">
+                <a href="#goals" class="btn btn-primary">
+                    <i class="fas fa-bullseye"></i>
+                    เป้าหมายของผม
+                </a>
+                <a href="#learning" class="btn btn-secondary">
+                    <i class="fas fa-graduation-cap"></i>
+                    การเตรียมตัว
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">เกี่ยวกับผม</h2>
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <img src="img/imageB.jpg" alt="Profile Picture" class="profile-img">
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <h3>สวัสดีครับ</h3>
+                    <p>
+                        ผมเป็นคนที่มีความมุ่งมั่นและมองการณ์ไกล ต้องการความมั่นคงในชีวิต 
+                        ตอนนี้กำลังเรียนรู้และเตรียมพร้อมทั้งทักษะการทำงานและการเป็นผู้ประกอบการ
+                    </p>
+                    <p>
+                        ผมเชื่อว่าการมีงานประจำที่มั่นคงเป็นรากฐานสำคัญ และการทำธุรกิจส่วนตัวเป็นเส้นทางสู่อิสรภาพทางการเงิน
+                        ผมวางแผนที่จะทำงานออฟฟิศเพื่อสะสมประสบการณ์และเงินทุน แล้วค่อยขยายไปสู่ธุรกิจของตัวเอง
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item animate-on-scroll">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">ปีการศึกษา</span>
+                        </div>
+                        <div class="stat-item animate-on-scroll">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">เป้าหมายชัดเจน</span>
+                        </div>
+                        <div class="stat-item animate-on-scroll">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">ความมุ่งมั่น</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="skills">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">เป้าหมายในชีวิต</h2>
+            <div class="skills-grid">
+                <div class="skill-category animate-on-scroll">
+                    <h4><i class="fas fa-bullseye"></i> เป้าหมายใกล้ตัว (1-2 ปี)</h4>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🎓 จบการศึกษาระดับปริญญาตรี</h5>
+                            <p>เกรดเฉลี่ยที่ดี สาขาที่เกี่ยวข้องกับการบริหารธุรกิจหรือคอมพิวเตอร์</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>💼 หางานประจำที่มั่นคง</h5>
+                            <p>ตำแหน่งพนักงานออฟฟิศในบริษัทที่มีชื่อเสียงและมีสวัสดิการดี</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>💰 สะสมเงินทุนเริ่มต้น</h5>
+                            <p>ออมเงินจากเงินเดือนเพื่อเป็นทุนสำหรับธุรกิจในอนาคต</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <h4><i class="fas fa-rocket"></i> เป้าหมายระยะกลาง (3-5 ปี)</h4>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>� พนักงานออฟฟิศที่มั่นคง</h5>
+                            <p>มีตำแหน่งงานที่ดี เงินเดือนพอใช้ และชีวิตการทำงานที่สมดุล</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>📈 เรียนรู้การลงทุน</h5>
+                            <p>ศึกษาการลงทุนในหุ้น กองทุน และสินทรัพย์อื่นๆ เพื่อเพิ่มพูนทรัพย์</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🏪 วางแผนธุรกิจส่วนตัว</h5>
+                            <p>ศึกษาตลาดและวางแผนธุรกิจที่ต้องการทำในอนาคต</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <h4><i class="fas fa-star"></i> เป้าหมายใหญ่ (5-10 ปี)</h4>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🏢 เริ่มธุรกิจส่วนตัว</h5>
+                            <p>ใช้ประสบการณ์และเงินทุนที่สะสมไว้เพื่อเริ่มธุรกิจของตัวเอง</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>💸 อิสรภาพทางการเงิน</h5>
+                            <p>มีรายได้จากธุรกิจที่เพียงพอต่อการดำรงชีวิตโดยไม่ต้องทำงานประจำ</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>� ขยายธุรกิจ</h5>
+                            <p>พัฒนาและขยายธุรกิจให้เติบโตและสร้างมูลค่าเพิ่ม</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section id="learning" class="portfolio">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">การเตรียมตัวสู่เป้าหมาย</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate-on-scroll">
+                    <div class="portfolio-image">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ทักษะคอมพิวเตอร์ออฟฟิศ</h4>
+                        <p>พัฒนาทักษะการใช้โปรแกรม Microsoft Office, Google Workspace และเครื่องมือการทำงานออฟฟิศต่างๆ</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">MS Office</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">PowerPoint</span>
+                            <span class="tag">Google Workspace</span>
+                        </div>
+                        <div class="learning-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                            <span class="progress-text">80% เสร็จแล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate-on-scroll">
+                    <div class="portfolio-image">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ทักษะการสื่อสาร</h4>
+                        <p>พัฒนาทักษะการพูด การนำเสนอ และการทำงานเป็นทีมสำหรับการทำงานในสำนักงาน</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Presentation</span>
+                            <span class="tag">Communication</span>
+                            <span class="tag">Teamwork</span>
+                            <span class="tag">Leadership</span>
+                        </div>
+                        <div class="learning-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                            <span class="progress-text">70% เสร็จแล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate-on-scroll">
+                    <div class="portfolio-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>การบริหารจัดการและธุรกิจ</h4>
+                        <p>เรียนรู้หลักการบริหารจัดการ การวิเคราะห์ธุรกิจ และการวางแผนกลยุทธ์เพื่อเตรียมพร้อมสำหรับธุรกิจส่วนตัว</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Business Plan</span>
+                            <span class="tag">Management</span>
+                            <span class="tag">Strategy</span>
+                            <span class="tag">Analysis</span>
+                        </div>
+                        <div class="learning-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="progress-text">45% เสร็จแล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate-on-scroll">
+                    <div class="portfolio-image">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>การเงินและการลงทุน</h4>
+                        <p>ศึกษาการบริหารเงิน การลงทุนในหุ้น กองทุน และการออมเงินเพื่อสร้างความมั่นคงทางการเงิน</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Investment</span>
+                            <span class="tag">Stock Market</span>
+                            <span class="tag">Saving</span>
+                            <span class="tag">Financial Planning</span>
+                        </div>
+                        <div class="learning-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 35%"></div>
+                            </div>
+                            <span class="progress-text">35% เสร็จแล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate-on-scroll">
+                    <div class="portfolio-image">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>ภาษาอังกฤษเพื่อการทำงาน</h4>
+                        <p>พัฒนาทักษะภาษาอังกฤษเพื่อการสื่อสารในที่ทำงานและเพื่อโอกาสในการทำงานกับบริษัทระหว่างประเทศ</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Business English</span>
+                            <span class="tag">Email Writing</span>
+                            <span class="tag">Presentation</span>
+                            <span class="tag">TOEIC</span>
+                        </div>
+                        <div class="learning-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span class="progress-text">60% เสร็จแล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate-on-scroll">
+                    <div class="portfolio-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>การตลาดดิจิทัลและ E-commerce</h4>
+                        <p>เรียนรู้การตลาดออนไลน์ การขายสินค้าผ่านแพลตฟอร์มต่างๆ เพื่อเตรียมพร้อมสำหรับธุรกิจออนไลน์</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Digital Marketing</span>
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Online Sales</span>
+                        </div>
+                        <div class="learning-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                            <span class="progress-text">40% เสร็จแล้ว</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Dreams Section -->
+    <section id="future" class="skills">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">อนาคตที่ฝัน</h2>
+            <div class="skills-grid">
+                <div class="skill-category animate-on-scroll">
+                    <h4><i class="fas fa-rocket"></i> สิ่งที่อยากเป็น</h4>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>👔 พนักงานออฟฟิศที่มั่นคง</h5>
+                            <p>มีงานประจำที่ดี มีความมั่นคงในชีวิต และสมดุลระหว่างการทำงานกับชีวิตส่วนตัว</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🏪 เจ้าของธุรกิจส่วนตัว</h5>
+                            <p>เป็นนักธุรกิจที่ประสบความสำเร็จ มีรายได้หลายทาง และอิสรภาพทางการเงิน</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>💰 นักลงทุนที่ชาญฉลาด</h5>
+                            <p>บริหารจัดการเงินเก่งและมีการลงทุนที่ให้ผลตอบแทนดี</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <h4><i class="fas fa-lightbulb"></i> ธุรกิจที่อยากทำ</h4>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🛒 ธุรกิจออนไลน์</h5>
+                            <p>ร้านค้าออนไลน์หรือ E-commerce ที่ขายสินค้าที่ตอบโจทย์ความต้องการของตลาด</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🍔 ร้านอาหารหรือคาเฟ่</h5>
+                            <p>ธุรกิจอาหารและเครื่องดื่มที่มีเอกลักษณ์ เน้นคุณภาพและบริการที่ดี</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>� ธุรกิจบริการ</h5>
+                            <p>ธุรกิจให้บริการที่ตอบโจทย์ปัญหาในชีวิตประจำวัน เช่น บริการทำความสะอาด บริการส่งของ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <h4><i class="fas fa-heart"></i> ความมั่นคงที่อยากมี</h4>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>� ความมั่นคงทางการเงิน</h5>
+                            <p>มีเงินออมและการลงทุนที่เพียงพอสำหรับความมั่นคงในอนาคต</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>👨‍👩‍👧‍� ความสุขของครอบครัว</h5>
+                            <p>สร้างครอบครัวที่อบอุ่นและมีเวลาอยู่กับคนที่รักอย่างเต็มที่</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-content">
+                            <h5>🌟 การพัฒนาตนเองอย่างต่อเนื่อง</h5>
+                            <p>เรียนรู้สิ่งใหม่ๆ และพัฒนาตัวเองตลอดชีวิตเพื่อความก้าวหน้า</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">ติดต่อผม</h2>
+            <div class="social-contact-section">
+                <div class="social-intro animate-on-scroll">
+                    <h3>มาเชื่อมต่อกันผ่าน Social Media!</h3>
+                    <p>ผมยินดีที่จะได้รู้จักและแลกเปลี่ยนความคิดเห็นกับทุกคน</p>
+                </div>
+                <div class="social-grid animate-on-scroll">
+                    <div class="social-card">
+                        <div class="social-icon github">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h4>GitHub</h4>
+                        <p>-</p>
+                        <span class="social-desc">-</span>
+                    </div>
+
+                    <div class="social-card">
+                        <div class="social-icon linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h4>LinkedIn</h4>
+                        <p>-</p>
+                        <span class="social-desc">-</span>
+                    </div>
+
+                    <div class="social-card">
+                        <div class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h4>Instagram</h4>
+                        <p>@avokado_kupo</p>
+                        <span class="social-desc">ไลฟ์สไตล์ธรรมดาๆ</span>
+                    </div>
+
+                    <div class="social-card">
+                        <div class="social-icon youtube">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h4>YouTube</h4>
+                        <p>-</p>
+                        <span class="social-desc">-</span>
+                    </div>
+
+                    <div class="social-card">
+                        <div class="social-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <h4>Twitter</h4>
+                        <p>-</p>
+                        <span class="social-desc">-</span>
+                    </div>
+
+                    <div class="social-card">
+                        <div class="social-icon discord">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h4>Discord</h4>
+                        <p>CEO_Saraburi</p>
+                        <span class="social-desc">คุยกันในชุมชนนักพัฒนา</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Kritsada Portfolio. สร้างด้วยความรักและความตั้งใจ ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Skill bars animation
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0%';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 500);
+                }
+            });
+        }, observerOptions);
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Social card hover effects
+        document.querySelectorAll('.social-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
